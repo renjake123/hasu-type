@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>蓮Type</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="practice">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Typing Trainer</p>
+            <h1>蓮Type</h1>
+          </div>
+          <div class="status-pill" id="runState">待機中</div>
+        </header>
+
+        <nav class="mode-tabs" aria-label="練習モード">
+          <button class="mode-tab is-active" data-mode="basic">基礎</button>
+          <button class="mode-tab" data-mode="words">単語</button>
+          <button class="mode-tab" data-mode="english">英単語</button>
+          <button class="mode-tab" data-mode="sentences">短文</button>
+          <button class="mode-tab" data-mode="numbers">数字</button>
+        </nav>
+
+        <div class="prompt-board" aria-live="polite">
+          <div class="kana-line" id="kanaLine">スペースキーで開始</div>
+          <div class="roma-line" id="romaLine"></div>
+          <div class="progress-track">
+            <div id="progressBar"></div>
+          </div>
+        </div>
+
+        <div class="typing-input" id="typedLine" aria-label="入力済み文字"></div>
+
+        <section class="keyboard" aria-label="キーボード">
+          <div class="key-row" data-row="qwerty"></div>
+          <div class="key-row" data-row="asdf"></div>
+          <div class="key-row" data-row="zxc"></div>
+          <div class="key-row bottom">
+            <span class="key wide" data-key=" ">space</span>
+          </div>
+        </section>
+      </section>
+
+      <aside class="panel">
+        <section>
+          <h2>成績</h2>
+          <div class="stats-grid">
+            <div>
+              <span id="speed">0</span>
+              <small>打/分</small>
+            </div>
+            <div>
+              <span id="accuracy">100</span>
+              <small>正確率%</small>
+            </div>
+            <div>
+              <span id="streak">0</span>
+              <small>連続正解</small>
+            </div>
+            <div>
+              <span id="misses">0</span>
+              <small>ミス</small>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>設定</h2>
+          <label class="toggle">
+            <input type="checkbox" id="soundToggle" checked>
+            <span>キー音</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="strictToggle" checked>
+            <span>ミス時に進めない</span>
+          </label>
+        </section>
+
+        <section>
+          <h2>苦手キー</h2>
+          <div class="weak-list" id="weakList">まだありません</div>
+        </section>
+
+        <section>
+          <h2>操作</h2>
+          <div class="actions">
+            <button id="startButton">開始</button>
+            <button id="resetButton">リセット</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="english-dictionary.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
